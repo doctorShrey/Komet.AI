@@ -108,7 +108,8 @@ export function Webinar() {
           phone: phone,
           childName: childName,
           school: school,
-          age: parseInt(age)
+          age: parseInt(age),
+          action: "webinar"
         })
       });
 

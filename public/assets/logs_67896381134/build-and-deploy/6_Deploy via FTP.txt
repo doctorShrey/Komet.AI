@@ -1,0 +1,92 @@
+﻿2026-05-07T12:15:46.4325060Z ##[warning]Unexpected input(s) 'overwrite', valid inputs are ['server', 'username', 'password', 'port', 'protocol', 'local-dir', 'server-dir', 'state-name', 'dry-run', 'dangerous-clean-slate', 'exclude', 'log-level', 'security', 'timeout']
+2026-05-07T12:15:46.4336817Z ##[group]Run SamKirkland/FTP-Deploy-Action@v4.3.4
+2026-05-07T12:15:46.4337111Z with:
+2026-05-07T12:15:46.4337358Z   server: ***
+2026-05-07T12:15:46.4337556Z   username: ***
+2026-05-07T12:15:46.4337921Z   password: ***
+2026-05-07T12:15:46.4338130Z   port: ***
+2026-05-07T12:15:46.4338319Z   local-dir: ./dist/
+2026-05-07T12:15:46.4338539Z   server-dir: /public_html/
+2026-05-07T12:15:46.4338757Z   overwrite: true
+2026-05-07T12:15:46.4338936Z   dry-run: false
+2026-05-07T12:15:46.4339123Z ##[endgroup]
+2026-05-07T12:15:46.4756663Z ----------------------------------------------------------------
+2026-05-07T12:15:46.4760277Z 🚀 Thanks for using ftp-deploy. Let's deploy some stuff!   
+2026-05-07T12:15:46.4760748Z ----------------------------------------------------------------
+2026-05-07T12:15:46.4762185Z If you found this project helpful, please support it
+2026-05-07T12:15:46.4762806Z by giving it a ⭐ on Github --> https://github.com/SamKirkland/FTP-Deploy-Action
+2026-05-07T12:15:46.4763563Z or add a badge 🏷️ to your projects readme --> https://github.com/SamKirkland/FTP-Deploy-Action#badge
+2026-05-07T12:15:50.4716321Z ----------------------------------------------------------------
+2026-05-07T12:15:50.4848491Z Last published on 📅 Thursday, May 7, 2026 at 11:52 AM
+2026-05-07T12:15:50.4866904Z ----------------------------------------------------------------
+2026-05-07T12:15:50.4898070Z Local Files:	46
+2026-05-07T12:15:50.4898556Z Server Files:	46
+2026-05-07T12:15:50.4898994Z ----------------------------------------------------------------
+2026-05-07T12:15:50.4899406Z Calculating differences between client & server
+2026-05-07T12:15:50.4899977Z ----------------------------------------------------------------
+2026-05-07T12:15:50.4911541Z 📄 Upload: public/assets/index-BznZgvWK.js
+2026-05-07T12:15:50.4912585Z 📄 Upload: public/assets/index-j0ZVOhCr.css
+2026-05-07T12:15:50.4913215Z 🔁 File replace: public/index.html
+2026-05-07T12:15:50.4913932Z 📄 Delete: public/assets/index-DkykHGal.js    
+2026-05-07T12:15:50.4914662Z 📄 Delete: public/assets/index-DUBiOfvm.css    
+2026-05-07T12:15:50.4915547Z ⚖️  File content is the same, doing nothing: public/assets/amazon.png
+2026-05-07T12:15:50.4916616Z ⚖️  File content is the same, doing nothing: public/assets/amity.png
+2026-05-07T12:15:50.4917499Z ⚖️  File content is the same, doing nothing: public/assets/arav.png
+2026-05-07T12:15:50.4918428Z ⚖️  File content is the same, doing nothing: public/assets/berkley.png
+2026-05-07T12:15:50.4919399Z ⚖️  File content is the same, doing nothing: public/assets/blastai.png
+2026-05-07T12:15:50.4920311Z ⚖️  File content is the same, doing nothing: public/assets/cardekho.png
+2026-05-07T12:15:50.4921272Z ⚖️  File content is the same, doing nothing: public/assets/dell.png
+2026-05-07T12:15:50.4922348Z ⚖️  File content is the same, doing nothing: public/assets/du.png
+2026-05-07T12:15:50.4923269Z ⚖️  File content is the same, doing nothing: public/assets/favicon.png
+2026-05-07T12:15:50.4924201Z ⚖️  File content is the same, doing nothing: public/assets/google.png
+2026-05-07T12:15:50.4925169Z ⚖️  File content is the same, doing nothing: public/assets/harvard.png
+2026-05-07T12:15:50.4926094Z ⚖️  File content is the same, doing nothing: public/assets/heph.png
+2026-05-07T12:15:50.4927010Z ⚖️  File content is the same, doing nothing: public/assets/hero-bg.png
+2026-05-07T12:15:50.4927818Z ⚖️  File content is the same, doing nothing: public/assets/iit.png
+2026-05-07T12:15:50.4928626Z ⚖️  File content is the same, doing nothing: public/assets/kids-hero.png
+2026-05-07T12:15:50.4929653Z ⚖️  File content is the same, doing nothing: public/assets/kids-portfolio-1.png
+2026-05-07T12:15:50.4930739Z ⚖️  File content is the same, doing nothing: public/assets/kids-portfolio-2.png
+2026-05-07T12:15:50.4931845Z ⚖️  File content is the same, doing nothing: public/assets/kids-portfolio-3.png
+2026-05-07T12:15:50.4933221Z ⚖️  File content is the same, doing nothing: public/assets/logov1.png
+2026-05-07T12:15:50.4934086Z ⚖️  File content is the same, doing nothing: public/assets/manipal.png
+2026-05-07T12:15:50.4934714Z ⚖️  File content is the same, doing nothing: public/assets/meta.png
+2026-05-07T12:15:50.4935225Z ⚖️  File content is the same, doing nothing: public/assets/microsoft.png
+2026-05-07T12:15:50.4935916Z ⚖️  File content is the same, doing nothing: public/assets/mit.png
+2026-05-07T12:15:50.4936411Z ⚖️  File content is the same, doing nothing: public/assets/ntt.png
+2026-05-07T12:15:50.4936955Z ⚖️  File content is the same, doing nothing: public/assets/nvidia.png
+2026-05-07T12:15:50.4937468Z ⚖️  File content is the same, doing nothing: public/assets/opengraph.jpg
+2026-05-07T12:15:50.4937981Z ⚖️  File content is the same, doing nothing: public/assets/oracle.png
+2026-05-07T12:15:50.4938520Z ⚖️  File content is the same, doing nothing: public/assets/portfolio-1.png
+2026-05-07T12:15:50.4939073Z ⚖️  File content is the same, doing nothing: public/assets/portfolio-2.png
+2026-05-07T12:15:50.4939613Z ⚖️  File content is the same, doing nothing: public/assets/portfolio-3.png
+2026-05-07T12:15:50.4940129Z ⚖️  File content is the same, doing nothing: public/assets/shrey.png
+2026-05-07T12:15:50.4940674Z ⚖️  File content is the same, doing nothing: public/assets/stanford.png
+2026-05-07T12:15:50.4941193Z ⚖️  File content is the same, doing nothing: public/assets/tarun.png
+2026-05-07T12:15:50.4941957Z ⚖️  File content is the same, doing nothing: public/assets/tcs.png
+2026-05-07T12:15:50.4942478Z ⚖️  File content is the same, doing nothing: public/assets/toronto.png
+2026-05-07T12:15:50.4942981Z ⚖️  File content is the same, doing nothing: public/assets/trentu.png
+2026-05-07T12:15:50.4943481Z ⚖️  File content is the same, doing nothing: public/assets/ucla.png
+2026-05-07T12:15:50.4943972Z ⚖️  File content is the same, doing nothing: public/assets/uiuc.png
+2026-05-07T12:15:50.4944500Z ⚖️  File content is the same, doing nothing: public/assets/umasslowell.png
+2026-05-07T12:15:50.4945038Z ⚖️  File content is the same, doing nothing: public/assets/ycombinator.png
+2026-05-07T12:15:50.4945559Z ⚖️  File content is the same, doing nothing: public/assets/yogesh.png
+2026-05-07T12:15:50.4946000Z ----------------------------------------------------------------
+2026-05-07T12:15:50.4946417Z Making changes to 5 files/folders to sync server state
+2026-05-07T12:15:50.4946835Z Uploading: 659 kB -- Deleting: 659 kB -- Replacing: 1.67 kB
+2026-05-07T12:15:50.4947239Z ----------------------------------------------------------------
+2026-05-07T12:15:50.4947603Z uploading "public/assets/index-BznZgvWK.js"
+2026-05-07T12:15:52.7281225Z uploading "public/assets/index-j0ZVOhCr.css"
+2026-05-07T12:15:54.4409035Z replacing "public/index.html"
+2026-05-07T12:15:55.4207729Z removing "public/assets/index-DkykHGal.js"
+2026-05-07T12:15:55.6636165Z removing "public/assets/index-DUBiOfvm.css"
+2026-05-07T12:15:55.9057618Z ----------------------------------------------------------------
+2026-05-07T12:15:55.9058754Z 🎉 Sync complete. Saving current server state to "/public_html/.ftp-deploy-sync-state.json"
+2026-05-07T12:15:56.8909113Z ----------------------------------------------------------------
+2026-05-07T12:15:56.8912672Z Time spent hashing: 44 milliseconds
+2026-05-07T12:15:56.8914102Z Time spent connecting to server: 2.2 seconds
+2026-05-07T12:15:56.8914821Z Time spent deploying: 6.3 seconds (103 kB/second)
+2026-05-07T12:15:56.8915392Z   - changing dirs: 726 milliseconds
+2026-05-07T12:15:56.8915823Z   - logging: 5 milliseconds
+2026-05-07T12:15:56.8916339Z ----------------------------------------------------------------
+2026-05-07T12:15:56.8916799Z Total time: 10.4 seconds
+2026-05-07T12:15:56.8917296Z ----------------------------------------------------------------

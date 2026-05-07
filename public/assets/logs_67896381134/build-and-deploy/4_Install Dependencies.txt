@@ -1,0 +1,16 @@
+﻿2026-05-07T12:15:34.2759387Z ##[group]Run npm install
+2026-05-07T12:15:34.2759739Z [36;1mnpm install[0m
+2026-05-07T12:15:34.2783493Z shell: /usr/bin/bash -e {0}
+2026-05-07T12:15:34.2783772Z ##[endgroup]
+2026-05-07T12:15:42.2087285Z 
+2026-05-07T12:15:42.2096177Z added 240 packages, and audited 241 packages in 8s
+2026-05-07T12:15:42.2096800Z 
+2026-05-07T12:15:42.2097224Z *** packages are looking for funding
+2026-05-07T12:15:42.2097753Z   run `npm fund` for details
+2026-05-07T12:15:42.2169949Z 
+2026-05-07T12:15:42.2170711Z 2 moderate severity vulnerabilities
+2026-05-07T12:15:42.2171141Z 
+2026-05-07T12:15:42.2171549Z To address all issues (including breaking changes), run:
+2026-05-07T12:15:42.2172302Z   npm audit fix --force
+2026-05-07T12:15:42.2172543Z 
+2026-05-07T12:15:42.2172775Z Run `npm audit` for details.

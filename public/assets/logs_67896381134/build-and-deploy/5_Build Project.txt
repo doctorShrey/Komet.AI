@@ -1,0 +1,22 @@
+﻿2026-05-07T12:15:42.2325331Z ##[group]Run npm run build
+2026-05-07T12:15:42.2325635Z [36;1mnpm run build[0m
+2026-05-07T12:15:42.2339502Z shell: /usr/bin/bash -e {0}
+2026-05-07T12:15:42.2339780Z ##[endgroup]
+2026-05-07T12:15:42.3417647Z 
+2026-05-07T12:15:42.6454732Z > @workspace/kometai@0.0.0 build
+2026-05-07T12:15:42.6455185Z > vite build --config vite.config.ts
+2026-05-07T12:15:42.6455408Z 
+2026-05-07T12:15:42.6455971Z [36mvite v5.4.*** [32mbuilding for production...[36m[39m
+2026-05-07T12:15:42.7059451Z transforming...
+2026-05-07T12:15:46.0272493Z [32m✓[39m 2274 modules transformed.
+2026-05-07T12:15:46.3687698Z rendering chunks...
+2026-05-07T12:15:46.3761948Z computing gzip size...
+2026-05-07T12:15:46.3930454Z [2mdist/public/[22m[32mindex.html                 [39m[1m[2m  1.66 kB[22m[1m[22m[2m │ gzip:   0.83 kB[22m
+2026-05-07T12:15:46.3931456Z [2mdist/public/[22m[2massets/[22m[35mindex-j0ZVOhCr.css  [39m[1m[2m123.79 kB[22m[1m[22m[2m │ gzip:  19.48 kB[22m
+2026-05-07T12:15:46.3932523Z [33m
+2026-05-07T12:15:46.3932984Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2026-05-07T12:15:46.3933449Z - Using dynamic import() to code-split the application
+2026-05-07T12:15:46.3934215Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2026-05-07T12:15:46.3935374Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2026-05-07T12:15:46.3936234Z [2mdist/public/[22m[2massets/[22m[36mindex-BznZgvWK.js   [39m[1m[33m535.26 kB[39m[22m[2m │ gzip: 167.88 kB[22m
+2026-05-07T12:15:46.3936779Z [32m✓ built in 3.72s[39m

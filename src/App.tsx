@@ -16,6 +16,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 // Initialize the React Query client for data fetching and caching
 const queryClient = new QueryClient();
@@ -52,6 +53,7 @@ function App() {
           <Router />
         </WouterRouter>
         <Toaster />
+        <WhatsAppButton />
       </TooltipProvider>
     </QueryClientProvider>
   );

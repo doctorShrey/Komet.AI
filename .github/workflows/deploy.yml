@@ -24,19 +24,6 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      - name: Generate PHP Config
-        run: |
-          mkdir -p ./dist/api
-          cat << 'EOF' > ./dist/api/config.php
-          <?php
-          define('SMTP_HOST', '${{ secrets.SMTP_HOST }}');
-          define('SMTP_PORT', ${{ secrets.SMTP_PORT }});
-          define('SMTP_USER', '${{ secrets.SMTP_USER }}');
-          define('SMTP_PASS', '${{ secrets.SMTP_PASS }}');
-          define('ADMIN_EMAIL', '${{ secrets.ADMIN_EMAIL }}');
-          ?>
-          EOF
-
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
@@ -44,7 +31,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
-          local-dir: ./dist/ 
-          server-dir: /public_html/
+          local-dir: ./dist/public/ 
+          server-dir: ./
           overwrite: true
           dry-run: false

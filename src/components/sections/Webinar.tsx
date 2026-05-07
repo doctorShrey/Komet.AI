@@ -96,8 +96,8 @@ export function Webinar() {
 
     setIsSubmitting(true);
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-      const response = await fetch(`${API_URL}/api/webinar`, {
+      const API_URL = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${API_URL}/api/contact.php`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

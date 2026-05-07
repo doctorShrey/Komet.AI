@@ -87,6 +87,28 @@ export function ApplicationPortal(): React.JSX.Element {
    * Proceeds to the next form step if validation passes.
    */
   const nextStep = () => {
+    if (step === 1) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (formData.email && !emailRegex.test(formData.email)) {
+        toast({
+          title: "Invalid Email",
+          description: "Please enter a valid email address.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      const phoneRegex = /^\+?[\d\s\-()]{7,20}$/;
+      if (formData.phone && !phoneRegex.test(formData.phone)) {
+        toast({
+          title: "Invalid Phone Number",
+          description: "Please enter a valid phone number.",
+          variant: "destructive",
+        });
+        return;
+      }
+    }
+
     if (validateStep()) {
       setStep((prev) => prev + 1);
     } else {

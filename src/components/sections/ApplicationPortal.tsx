@@ -185,21 +185,14 @@ export function ApplicationPortal(): React.JSX.Element {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/supportkometai@gmail.com', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${API_URL}/api/apply`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          _subject: "New Application for Komet.AI",
-          "Parent Name": formData.parentName,
-          "Email Address": formData.email,
-          "Phone Number": formData.phone || "Not provided",
-          "Child's Name": formData.childName,
-          "Child's Grade": formData.childGrade,
-          "Child's Interests": formData.interests || "Not provided",
-        }),
+        body: JSON.stringify(formData),
       });
 
       if (!response.ok) {

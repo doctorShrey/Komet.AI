@@ -96,21 +96,19 @@ export function Webinar() {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch("https://formsubmit.co/ajax/supportkometai@gmail.com", {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${API_URL}/api/webinar`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _subject: "New Webinar Registration",
           email: email,
-          _autoresponse: "Thank you for registering for the Komet.AI free webinar! We will send you the webinar link and a reminder email soon.",
-          Email: email,
-          Phone: phone,
-          "Child's Name": childName,
-          School: school,
-          Age: age
+          phone: phone,
+          childName: childName,
+          school: school,
+          age: parseInt(age)
         })
       });
 

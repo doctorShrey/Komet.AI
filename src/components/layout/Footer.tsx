@@ -70,7 +70,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold text-slate-600">
-          <div>&copy; {new Date().getFullYear()} Komet.AI. All rights refreshed.</div>
+          <div>&copy; {new Date().getFullYear()} Komet.AI. All rights reserved.</div>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-slate-300 transition-colors">Terms of Service</a>

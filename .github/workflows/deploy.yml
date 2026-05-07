@@ -33,3 +33,5 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           local-dir: ./dist/  # The folder created by 'npm run build'
           server-dir: ./
+          overwrite: true
+          dry-run: false

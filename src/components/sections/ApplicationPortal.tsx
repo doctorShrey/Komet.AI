@@ -37,7 +37,7 @@ interface ApplicationFormData {
  * @returns {string} The sanitized string.
  */
 const sanitizeInput = (input: string): string => {
-  return input.replace(/[<>]/g, "").trim();
+  return input.replace(/[<>]/g, "");
 };
 
 /**
@@ -50,7 +50,7 @@ export function ApplicationPortal(): React.JSX.Element {
   const { toast } = useToast();
   const [step, setStep] = useState<number>(1);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  
+
   const [formData, setFormData] = useState<ApplicationFormData>({
     parentName: "",
     email: "",
@@ -86,10 +86,31 @@ export function ApplicationPortal(): React.JSX.Element {
   /**
    * Proceeds to the next form step if validation passes.
    */
-  const nextStep = () => {
+  const nextStep = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+
     if (step === 1) {
+      if (!formData.parentName || !formData.email) {
+        toast({
+          title: "Missing Information",
+          description: "Please fill out all required fields.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      const nameRegex = /^[a-zA-Z\s]+$/;
+      if (!nameRegex.test(formData.parentName)) {
+        toast({
+          title: "Invalid Name",
+          description: "Name should only contain alphabets.",
+          variant: "destructive",
+        });
+        return;
+      }
+
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (formData.email && !emailRegex.test(formData.email)) {
+      if (!emailRegex.test(formData.email)) {
         toast({
           title: "Invalid Email",
           description: "Please enter a valid email address.",
@@ -98,26 +119,40 @@ export function ApplicationPortal(): React.JSX.Element {
         return;
       }
 
-      const phoneRegex = /^\+?[\d\s\-()]{7,20}$/;
-      if (formData.phone && !phoneRegex.test(formData.phone)) {
+      if (formData.phone) {
+        const cleanedPhone = formData.phone.replace(/[\s\-()]/g, '');
+        const phoneRegex = /^\d{1,10}$/;
+        if (!phoneRegex.test(cleanedPhone)) {
+          toast({
+            title: "Invalid Phone Number",
+            description: "Phone number must be valid and no longer than 10 digits.",
+            variant: "destructive",
+          });
+          return;
+        }
+      }
+    } else if (step === 2) {
+      if (!formData.childName || !formData.childGrade) {
         toast({
-          title: "Invalid Phone Number",
-          description: "Please enter a valid phone number.",
+          title: "Missing Information",
+          description: "Please fill out all required fields.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      const nameRegex = /^[a-zA-Z\s]+$/;
+      if (!nameRegex.test(formData.childName)) {
+        toast({
+          title: "Invalid Name",
+          description: "Name should only contain alphabets.",
           variant: "destructive",
         });
         return;
       }
     }
 
-    if (validateStep()) {
-      setStep((prev) => prev + 1);
-    } else {
-      toast({
-        title: "Invalid Information",
-        description: "Please fill out all required fields correctly before continuing.",
-        variant: "destructive",
-      });
-    }
+    setStep((prev) => prev + 1);
   };
 
   /**
@@ -132,7 +167,12 @@ export function ApplicationPortal(): React.JSX.Element {
    */
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    
+
+    if (step < 3) {
+      nextStep();
+      return;
+    }
+
     if (!validateStep()) {
       toast({
         title: "Missing Information",
@@ -237,7 +277,7 @@ export function ApplicationPortal(): React.JSX.Element {
             ))}
           </div>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} noValidate>
             <AnimatePresence mode="wait">
               {step === 1 && (
                 <motion.div
@@ -257,7 +297,7 @@ export function ApplicationPortal(): React.JSX.Element {
                         name="parentName"
                         value={formData.parentName}
                         onChange={handleChange}
-                        placeholder="e.g. Jane Doe"
+                        placeholder="e.g. Saurav Kumar"
                         className="h-12 bg-white rounded-xl mt-1 border-slate-200 focus-visible:ring-teal-500"
                       />
                     </div>
@@ -269,7 +309,7 @@ export function ApplicationPortal(): React.JSX.Element {
                         type="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="jane@example.com"
+                        placeholder="sauravkumar@kometai.com"
                         className="h-12 bg-white rounded-xl mt-1 border-slate-200 focus-visible:ring-teal-500"
                       />
                     </div>
@@ -281,7 +321,7 @@ export function ApplicationPortal(): React.JSX.Element {
                         type="tel"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="9818616719"
                         className="h-12 bg-white rounded-xl mt-1 border-slate-200 focus-visible:ring-teal-500"
                       />
                     </div>
@@ -307,7 +347,7 @@ export function ApplicationPortal(): React.JSX.Element {
                         name="childName"
                         value={formData.childName}
                         onChange={handleChange}
-                        placeholder="e.g. Leo"
+                        placeholder="e.g. Tanya"
                         className="h-12 bg-white rounded-xl mt-1 border-slate-200 focus-visible:ring-teal-500"
                       />
                     </div>
@@ -380,6 +420,7 @@ export function ApplicationPortal(): React.JSX.Element {
 
               {step < 3 ? (
                 <Button
+                  key="continue-btn"
                   type="button"
                   onClick={nextStep}
                   className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl px-8 h-12 font-bold shadow-md transition-all"
@@ -389,6 +430,7 @@ export function ApplicationPortal(): React.JSX.Element {
                 </Button>
               ) : (
                 <Button
+                  key="submit-btn"
                   type="submit"
                   disabled={isSubmitting}
                   className="bg-teal-500 hover:bg-teal-600 text-white rounded-xl px-8 h-12 font-bold shadow-md shadow-teal-500/20 transition-all"

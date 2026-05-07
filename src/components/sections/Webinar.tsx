@@ -35,8 +35,27 @@ export function Webinar() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!email || !phone || !childName || !school || !age) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill out all required fields.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const nameRegex = /^[a-zA-Z\s]+$/;
+    if (!nameRegex.test(childName)) {
+      toast({
+        title: "Invalid Name",
+        description: "Name should only contain alphabets.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email && !emailRegex.test(email)) {
+    if (!emailRegex.test(email)) {
       toast({
         title: "Invalid Email",
         description: "Please enter a valid email address.",
@@ -45,17 +64,35 @@ export function Webinar() {
       return;
     }
 
-    const phoneRegex = /^\+?[\d\s\-()]{7,20}$/;
-    if (phone && !phoneRegex.test(phone)) {
+    const cleanedPhone = phone.replace(/[\s\-()]/g, '');
+    const phoneRegex = /^\d{1,10}$/;
+    if (!phoneRegex.test(cleanedPhone)) {
       toast({
         title: "Invalid Phone Number",
-        description: "Please enter a valid phone number.",
+        description: "Phone number must be valid and no longer than 10 digits.",
         variant: "destructive"
       });
       return;
     }
 
-    if (!email || !phone || !childName || !school || !age) return;
+    const schoolRegex = /^[a-zA-Z0-9\s]+$/;
+    if (!schoolRegex.test(school)) {
+      toast({
+        title: "Invalid School",
+        description: "School name should only contain alphabets and numbers.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (isNaN(Number(age)) || Number(age) < 4 || Number(age) > 18) {
+      toast({
+        title: "Invalid Age",
+        description: "Please enter a valid age (4-18).",
+        variant: "destructive"
+      });
+      return;
+    }
 
     setIsSubmitting(true);
     try {
@@ -151,13 +188,13 @@ export function Webinar() {
                   <p className="text-gray-500 font-medium">Check your email for the link.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-3 text-left">
+                <form onSubmit={handleSubmit} className="space-y-3 text-left" noValidate>
                   <div>
                     <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-1">Parent's Email</label>
                     <Input
                       id="email"
                       type="email"
-                      placeholder="hello@example.com"
+                      placeholder="support@kometai.org"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="h-12 rounded-xl bg-gray-50 border-gray-200 text-black text-lg px-4"
@@ -169,7 +206,7 @@ export function Webinar() {
                     <Input
                       id="phone"
                       type="tel"
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="9818616719"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="h-12 rounded-xl bg-gray-50 border-gray-200 text-black text-lg px-4"
@@ -181,7 +218,7 @@ export function Webinar() {
                     <Input
                       id="childName"
                       type="text"
-                      placeholder="John Doe Jr."
+                      placeholder="Saurav Kumar"
                       value={childName}
                       onChange={(e) => setChildName(e.target.value)}
                       className="h-12 rounded-xl bg-gray-50 border-gray-200 text-black text-lg px-4"
@@ -194,7 +231,7 @@ export function Webinar() {
                       <Input
                         id="school"
                         type="text"
-                        placeholder="Lincoln Elementary"
+                        placeholder="Genesis Global School"
                         value={school}
                         onChange={(e) => setSchool(e.target.value)}
                         className="h-12 rounded-xl bg-gray-50 border-gray-200 text-black text-lg px-4"
